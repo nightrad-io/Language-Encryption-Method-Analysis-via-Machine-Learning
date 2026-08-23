@@ -1,0 +1,7 @@
+# Pinned to the versions the shipped models were trained/pickled with.
+# scikit-learn in particular can warn or fail to unpickle across major
+# version gaps -- keep this in sync with whatever trains models/*.joblib.
+scikit-learn==1.9.0
+joblib==1.5.3
+numpy==2.5.2
+pandas==3.0.5
