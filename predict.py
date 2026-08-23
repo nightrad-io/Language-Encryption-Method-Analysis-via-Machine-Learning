@@ -13,6 +13,10 @@ distribution. Run --list-ciphers to see valid ids.
 
     python predict.py --file mystery.txt --cipher vigenere
 
+Text longer than 10,000 characters (the longest window size seen in
+training) is automatically split into chunks and the results averaged --
+see --no-chunk / --chunk-size to control this.
+
 For repeated/programmatic queries (e.g. from a server), import
 client.CipherLanguageClient directly instead -- it loads the models once
 and exposes .predict(text).
@@ -21,7 +25,7 @@ import argparse
 import json
 import os
 
-from client import CipherLanguageClient
+from client import CipherLanguageClient, MAX_TRAINED_WINDOW
 
 
 def main():
@@ -36,6 +40,14 @@ def main():
     p.add_argument("--top-k", type=int, default=3)
     p.add_argument("--models-dir", default="models")
     p.add_argument("--eval-report", default="output/model_eval.json")
+    p.add_argument("--chunk-size", type=int, default=MAX_TRAINED_WINDOW,
+                    help=f"Split input longer than this many characters into chunks and average "
+                         f"the results (default: {MAX_TRAINED_WINDOW}, the longest window size "
+                         f"used in training)")
+    p.add_argument("--no-chunk", action="store_true",
+                    help="Disable chunking -- run one raw prediction over the whole input "
+                         "regardless of length. Not recommended for long input; mainly useful "
+                         "for diagnosing length-extrapolation behavior directly.")
     args = p.parse_args()
 
     if args.list_ciphers:
@@ -54,11 +66,13 @@ def main():
 
     client = CipherLanguageClient(models_dir=args.models_dir, eval_report=args.eval_report)
     try:
-        result = client.predict(text, top_k=args.top_k, known_cipher=args.cipher)
+        result = client.predict(text, top_k=args.top_k, known_cipher=args.cipher,
+                                 chunk=not args.no_chunk, chunk_size=args.chunk_size)
     except ValueError as e:
         p.error(str(e))
 
-    print(f"Input: {result['n_chars']} characters, word-boundary-preserving features "
+    chunk_note = f", averaged over {result['n_chunks']} chunks" if result["n_chunks"] > 1 else ""
+    print(f"Input: {result['n_chars']} characters{chunk_note}, word-boundary-preserving features "
           f"{'available' if result['word_level_applicable'] else 'not available (letters-only cipher output)'}\n")
 
     if result["cipher_source"] == "user_specified":
