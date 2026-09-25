@@ -1,7 +1,7 @@
 # Cipher & Language Identification
 
 Given a piece of text — plaintext or enciphered with a classical cipher —
-predicts which of 21 classical ciphers was used and which of 38 languages
+predicts which of 21 classical ciphers was used and which of 91 languages
 the underlying text is in. Two-stage `HistGradientBoostingClassifier`
 pipeline, trained entirely on statistics observable from the ciphertext
 itself (no oracle knowledge of the true language or cipher at inference
@@ -36,7 +36,7 @@ result.get("family_note") # present when the top language has a close-knit
 
 - **Stage A** predicts the cipher (21-way) from 105 features computed
   purely from the observable symbol stream of the input text.
-- **Stage B** predicts the language (38-way) from those same 105 features
+- **Stage B** predicts the language (91-way) from those same 105 features
   plus Stage A's predicted probability for each of the 21 ciphers (126
   inputs total) — a stacked architecture, not two independent models.
 
@@ -76,27 +76,51 @@ OPUS-100, which turned out to have significant contamination for a
 meaningful fraction of languages (software-localization strings and
 web-crawl artifacts mixed into supposedly natural-language text).
 
+Each language's 3M-character corpus is a seeded uniform random sample of
+its cleaned sentences. Leipzig's `*-sentences.txt` files are sorted
+alphabetically, and the previous (38-language) model's corpora were a file
+prefix: English was nothing but sentences starting with digits, "a…",
+"after…", "another…", and non-Latin-script languages were front-loaded
+with their Latin-script sentences. Latin files are visited in a seeded
+shuffle of their sorted paths (dotfiles, code and markdown excluded).
+
 For each (language, cipher, window size) combination, ciphertext samples
 are drawn from independently-random offsets into that language's corpus
 — not a sliding window — seeded deterministically
 (`f"{lang}|{cipher}|{window_size}|{sample_id}"`) so any specific sample is
 exactly reproducible.
 
-### Languages (38)
+### Languages (91)
 
 | Family | Languages |
 |---|---|
 | Germanic (13) | English, German, Dutch, Afrikaans, Western Frisian, Limburgish, Danish, Swedish, Norwegian, Norwegian Bokmål, Norwegian Nynorsk, Icelandic, Yiddish |
 | Romance (10) | French, Spanish, Portuguese, Italian, Catalan, Galician, Romanian, Aragonese, Walloon, Latin |
 | Slavic (13) | Russian, Ukrainian, Belarusian, Polish, Czech, Slovak, Bulgarian, Macedonian, Serbian, Croatian, Bosnian, Serbo-Croatian, Slovenian |
-| Hellenic (1) | Greek |
-| Basque (1) | Basque |
+| Celtic (3) | Irish, Welsh, Breton |
+| Baltic (2) | Lithuanian, Latvian |
+| Other Indo-European (3) | Greek, Albanian, Armenian |
+| Indo-Aryan (10) | Hindi, Urdu, Bengali, Assamese, Marathi, Nepali, Gujarati, Punjabi, Odia, Sinhala |
+| Iranian (4) | Persian, Kurdish, Pashto, Tajik |
+| Uralic (4) | Finnish, Estonian, Hungarian, Northern Sami |
+| Turkic (8) | Turkish, Azerbaijani, Kazakh, Kyrgyz, Tatar, Turkmen, Uzbek, Uyghur |
+| Dravidian (4) | Tamil, Telugu, Kannada, Malayalam |
+| Afroasiatic (5) | Arabic, Hebrew, Maltese, Amharic, Hausa |
+| Austronesian (3) | Indonesian, Malay, Malagasy |
+| Niger-Congo (3) | Igbo, Yoruba, Zulu |
+| Other (6) | Georgian, Mongolian, Korean, Vietnamese, Basque, Esperanto |
 
-This selection concentrates several close-knit language clusters (three
-Norwegian codes, four codes across the Serbo-Croatian dialect continuum,
-Dutch/Afrikaans). `client.py` detects when the top-predicted language has
-a real rival from one of these clusters and reports it explicitly rather
-than a single overconfident guess — see `family_note` above.
+Excluded: Chinese, Japanese, Thai, Khmer, Burmese and Dzongkha (no
+whitespace word segmentation, so every word/morpheme feature is blank),
+plus Scottish Gaelic, Occitan, Kinyarwanda and Xhosa (no Leipzig corpus at
+the wikipedia/news quality bar) — see `pipeline/langcodes.py`.
+
+Several close-knit clusters are hard to separate statistically (the
+Norwegian codes and Danish, the Serbo-Croatian continuum, Malay/Indonesian,
+Bengali/Assamese, Nepali/Marathi, Kazakh/Tatar, ...). `client.py` detects
+when the top-predicted language has a real rival from one of these
+clusters and reports it explicitly rather than a single overconfident
+guess — see `family_note` above.
 
 ### Ciphers (21)
 
@@ -112,7 +136,7 @@ than a single overconfident guess — see `family_note` above.
 ## Parameters tested
 
 - **Window sizes**: 100, 500, 1,000, 2,000, 5,000, 10,000 characters
-- **Samples per (language, cipher, window) cell**: 30
+- **Samples per (language, cipher, window) cell**: 50 (559,500 rows total)
 - **Hyperparameter search**: Bayesian optimization (`scikit-optimize`
   `BayesSearchCV`), 100 iterations per stage, 3-fold stratified
   cross-validation, on a 60,000-row stratified subsample, scored on
@@ -127,41 +151,71 @@ than a single overconfident guess — see `family_note` above.
 
   | | Stage A (cipher) | Stage B (language) |
   |---|---|---|
-  | max_iter | 207 | 350 |
-  | max_leaf_nodes | 108 | 255 |
-  | learning_rate | 0.0164 | 0.0163 |
-  | min_samples_leaf | 99 | 100 |
-  | l2_regularization | 0.000115 | 0.0407 |
+  | max_iter | 350 | 350 |
+  | max_leaf_nodes | 185 | 255 |
+  | learning_rate | 0.0100 | 0.0185 |
+  | min_samples_leaf | 95 | 100 |
+  | l2_regularization | 0.00292 | 0.00274 |
   | max_bins | 255 | 255 |
 
 ## Model performance
 
-Held-out test split (28,476 rows):
+Held-out test split (111,900 rows):
 
 | | accuracy | macro-F1 | top-5 |
 |---|---|---|---|
-| Stage A (cipher, 21-way) | 57.6% | 57.9% | 98.8% |
-| Stage B (language, 38-way) | 60.8% | 60.7% | 88.0% |
+| Stage A (cipher, 21-way) | 59.9% | 60.5% | 99.1% |
+| Stage B (language, 91-way) | 75.3% | 75.7% | 90.9% |
 
-Fresh out-of-sample benchmark (23,730 samples generated with seeds never
-used in training): cipher 57.8%, language (cipher unknown) 60.7%,
-language (cipher known) 58.6%.
+Both correct (joint): 45.5%.
 
-Both metrics climb sharply with input length — language accuracy alone
-goes from ~21% at 100 characters to ~80% at 10,000 characters.
+Fresh out-of-sample benchmark (`benchmarks/benchmark.py --languages all
+--window-sizes 100,500,1000,5000 --n-samples 3`, 22,380 samples, seeds
+never used in training): cipher 57.0%, language (cipher unknown) 68.0%,
+language (cipher known) 65.0%.
+
+Language accuracy by input length (fresh benchmark): 35.5% at 100
+characters, 66.7% at 500, 78.7% at 1,000, 90.8% at 5,000. Held-out split
+reaches 92.9% at 10,000.
+
+Against the previous 38-language model, benchmarked on the same corrected
+corpora and restricted to its 38 languages (9,492 samples):
+
+| | cipher | language | language (cipher known) |
+|---|---|---|---|
+| previous model (38-way) | 53.2% | 49.7% | 48.3% |
+| this model (91-way) | 55.6% | 56.4% | 53.7% |
+
+The previous model's own published numbers (57.6% / 60.8%) were measured on
+the alphabetically-truncated corpora it was trained on.
+
+## Training
+
+Everything is run from the repo root (paths are cwd-relative):
+
+```bash
+pip install -r requirements-train.txt
+python training/fetch_leipzig_corpora.py                 # -> output/corpora/, output/alphabets/
+# Latin: clone The Latin Library text into dictionaries/lat_text_latin_library/;
+# its corpus is built on first use by the step below.
+python training/build_model_dataset.py --n-samples 50    # -> output/model_dataset.csv (one language per core, --jobs)
+python training/train_model.py                           # -> models/*, output/model_eval.json
+python benchmarks/benchmark.py --languages all           # fresh-seed end-to-end benchmark
+python -m unittest discover tests
+```
 
 ## Model files
 
 | File | Size | What |
 |---|---|---|
-| `models/cipher_classifier.joblib` | ~45MB | Stage A |
-| `models/language_classifier.joblib` | ~248MB | Stage B |
-| `models/feature_manifest.json` | 4.4KB | exact feature column order, both stages' class lists, and hyperparameters — inference must match this exactly |
+| `models/cipher_classifier.joblib` | ~138MB | Stage A |
+| `models/language_classifier.joblib` | ~581MB | Stage B |
+| `models/feature_manifest.json` | 5KB | exact feature column order, both stages' class lists, and hyperparameters — inference must match this exactly |
 
 ### Git LFS
 
-`language_classifier.joblib` is well over GitHub's 100MB per-file limit,
-so both `.joblib` files are tracked via [Git LFS](https://git-lfs.com/)
+Both `.joblib` files are over GitHub's 100MB per-file limit, so they are
+tracked via [Git LFS](https://git-lfs.com/)
 (`.gitattributes` is already configured). Before cloning or committing
 model updates:
 
@@ -179,10 +233,17 @@ text pointer files in `models/` instead of the actual model binaries.
   genuine extrapolation for a tree-based model — accuracy doesn't degrade
   gracefully past that point.
 - **`--cipher` / `known_cipher=` mode measurably underperforms the
-  unknown-cipher path** (~2 percentage points on language accuracy in the
+  unknown-cipher path** (~3 percentage points on language accuracy in the
   latest benchmark). Stage B was trained on Stage A's soft out-of-fold
   predicted probabilities; a hard one-hot vector at inference is a
   distribution it never saw during training.
-- Language coverage is limited to the 38 languages above — no CJK,
-  Southeast Asian, South Asian, Semitic, Turkic, or African-language
-  coverage in this particular model.
+- **Digraphic ciphers carry the least language signal** (63.8% language
+  accuracy on the held-out split vs. 84.9% for plaintext). Most of the
+  benchmark's linguistically-unrelated confusions (Irish↔Bokmål,
+  English→Welsh, Basque→Indonesian) are digraphic samples.
+- **Samples overlap at long windows.** Each corpus is 3M characters, so
+  50 random 10,000-character windows per cipher (and the benchmark's fresh
+  seeds) share plaintext with training samples, under different keys.
+  Long-window accuracy is likely optimistic.
+- `no` and `nb` are nearly indistinguishable (the benchmark predicts most
+  `nb` plaintext samples as `no`); read either as Norwegian (Bokmål).

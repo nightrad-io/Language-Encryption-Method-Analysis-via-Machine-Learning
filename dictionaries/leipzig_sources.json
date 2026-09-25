@@ -1,0 +1,632 @@
+{
+  "af": {
+    "data_id": "afr_wikipedia_2021_300K",
+    "url": "https://downloads.wortschatz-leipzig.de/corpora/afr_wikipedia_2021_300K.tar.gz",
+    "genre": "wikipedia",
+    "size": "300K",
+    "year": "2021"
+  },
+  "am": {
+    "data_id": "amh_wikipedia_2021_30K",
+    "url": "https://downloads.wortschatz-leipzig.de/corpora/amh_wikipedia_2021_30K.tar.gz",
+    "genre": "wikipedia",
+    "size": "30K",
+    "year": "2021"
+  },
+  "an": {
+    "data_id": "arg_wikipedia_2021_30K",
+    "url": "https://downloads.wortschatz-leipzig.de/corpora/arg_wikipedia_2021_30K.tar.gz",
+    "genre": "wikipedia",
+    "size": "30K",
+    "year": "2021"
+  },
+  "ar": {
+    "data_id": "ara_wikipedia_2021_300K",
+    "url": "https://downloads.wortschatz-leipzig.de/corpora/ara_wikipedia_2021_300K.tar.gz",
+    "genre": "wikipedia",
+    "size": "300K",
+    "year": "2021"
+  },
+  "as": {
+    "data_id": "asm_wikipedia_2021_100K",
+    "url": "https://downloads.wortschatz-leipzig.de/corpora/asm_wikipedia_2021_100K.tar.gz",
+    "genre": "wikipedia",
+    "size": "100K",
+    "year": "2021"
+  },
+  "az": {
+    "data_id": "aze_wikipedia_2021_300K",
+    "url": "https://downloads.wortschatz-leipzig.de/corpora/aze_wikipedia_2021_300K.tar.gz",
+    "genre": "wikipedia",
+    "size": "300K",
+    "year": "2021"
+  },
+  "be": {
+    "data_id": "bel_wikipedia_2021_300K",
+    "url": "https://downloads.wortschatz-leipzig.de/corpora/bel_wikipedia_2021_300K.tar.gz",
+    "genre": "wikipedia",
+    "size": "300K",
+    "year": "2021"
+  },
+  "bg": {
+    "data_id": "bul_wikipedia_2021_300K",
+    "url": "https://downloads.wortschatz-leipzig.de/corpora/bul_wikipedia_2021_300K.tar.gz",
+    "genre": "wikipedia",
+    "size": "300K",
+    "year": "2021"
+  },
+  "bn": {
+    "data_id": "ben_wikipedia_2021_300K",
+    "url": "https://downloads.wortschatz-leipzig.de/corpora/ben_wikipedia_2021_300K.tar.gz",
+    "genre": "wikipedia",
+    "size": "300K",
+    "year": "2021"
+  },
+  "br": {
+    "data_id": "bre_wikipedia_2021_100K",
+    "url": "https://downloads.wortschatz-leipzig.de/corpora/bre_wikipedia_2021_100K.tar.gz",
+    "genre": "wikipedia",
+    "size": "100K",
+    "year": "2021"
+  },
+  "bs": {
+    "data_id": "bos_wikipedia_2021_300K",
+    "url": "https://downloads.wortschatz-leipzig.de/corpora/bos_wikipedia_2021_300K.tar.gz",
+    "genre": "wikipedia",
+    "size": "300K",
+    "year": "2021"
+  },
+  "ca": {
+    "data_id": "cat_wikipedia_2021_300K",
+    "url": "https://downloads.wortschatz-leipzig.de/corpora/cat_wikipedia_2021_300K.tar.gz",
+    "genre": "wikipedia",
+    "size": "300K",
+    "year": "2021"
+  },
+  "cs": {
+    "data_id": "ces_wikipedia_2021_300K",
+    "url": "https://downloads.wortschatz-leipzig.de/corpora/ces_wikipedia_2021_300K.tar.gz",
+    "genre": "wikipedia",
+    "size": "300K",
+    "year": "2021"
+  },
+  "cy": {
+    "data_id": "cym_wikipedia_2021_100K",
+    "url": "https://downloads.wortschatz-leipzig.de/corpora/cym_wikipedia_2021_100K.tar.gz",
+    "genre": "wikipedia",
+    "size": "100K",
+    "year": "2021"
+  },
+  "da": {
+    "data_id": "dan_wikipedia_2021_300K",
+    "url": "https://downloads.wortschatz-leipzig.de/corpora/dan_wikipedia_2021_300K.tar.gz",
+    "genre": "wikipedia",
+    "size": "300K",
+    "year": "2021"
+  },
+  "de": {
+    "data_id": "deu_wikipedia_2021_300K",
+    "url": "https://downloads.wortschatz-leipzig.de/corpora/deu_wikipedia_2021_300K.tar.gz",
+    "genre": "wikipedia",
+    "size": "300K",
+    "year": "2021"
+  },
+  "el": {
+    "data_id": "ell_wikipedia_2021_300K",
+    "url": "https://downloads.wortschatz-leipzig.de/corpora/ell_wikipedia_2021_300K.tar.gz",
+    "genre": "wikipedia",
+    "size": "300K",
+    "year": "2021"
+  },
+  "en": {
+    "data_id": "eng_wikipedia_2016_300K",
+    "url": "https://downloads.wortschatz-leipzig.de/corpora/eng_wikipedia_2016_300K.tar.gz",
+    "genre": "wikipedia",
+    "size": "300K",
+    "year": "2016"
+  },
+  "eo": {
+    "data_id": "epo_wikipedia_2021_300K",
+    "url": "https://downloads.wortschatz-leipzig.de/corpora/epo_wikipedia_2021_300K.tar.gz",
+    "genre": "wikipedia",
+    "size": "300K",
+    "year": "2021"
+  },
+  "es": {
+    "data_id": "spa_wikipedia_2021_300K",
+    "url": "https://downloads.wortschatz-leipzig.de/corpora/spa_wikipedia_2021_300K.tar.gz",
+    "genre": "wikipedia",
+    "size": "300K",
+    "year": "2021"
+  },
+  "et": {
+    "data_id": "est_wikipedia_2014_300K",
+    "url": "https://downloads.wortschatz-leipzig.de/corpora/est_wikipedia_2014_300K.tar.gz",
+    "genre": "wikipedia",
+    "size": "300K",
+    "year": "2014"
+  },
+  "eu": {
+    "data_id": "eus_wikipedia_2021_300K",
+    "url": "https://downloads.wortschatz-leipzig.de/corpora/eus_wikipedia_2021_300K.tar.gz",
+    "genre": "wikipedia",
+    "size": "300K",
+    "year": "2021"
+  },
+  "fa": {
+    "data_id": "fas_wikipedia_2014_300K",
+    "url": "https://downloads.wortschatz-leipzig.de/corpora/fas_wikipedia_2014_300K.tar.gz",
+    "genre": "wikipedia",
+    "size": "300K",
+    "year": "2014"
+  },
+  "fi": {
+    "data_id": "fin_wikipedia_2021_300K",
+    "url": "https://downloads.wortschatz-leipzig.de/corpora/fin_wikipedia_2021_300K.tar.gz",
+    "genre": "wikipedia",
+    "size": "300K",
+    "year": "2021"
+  },
+  "fr": {
+    "data_id": "fra_wikipedia_2021_300K",
+    "url": "https://downloads.wortschatz-leipzig.de/corpora/fra_wikipedia_2021_300K.tar.gz",
+    "genre": "wikipedia",
+    "size": "300K",
+    "year": "2021"
+  },
+  "fy": {
+    "data_id": "fry_wikipedia_2021_100K",
+    "url": "https://downloads.wortschatz-leipzig.de/corpora/fry_wikipedia_2021_100K.tar.gz",
+    "genre": "wikipedia",
+    "size": "100K",
+    "year": "2021"
+  },
+  "ga": {
+    "data_id": "gle_wikipedia_2021_30K",
+    "url": "https://downloads.wortschatz-leipzig.de/corpora/gle_wikipedia_2021_30K.tar.gz",
+    "genre": "wikipedia",
+    "size": "30K",
+    "year": "2021"
+  },
+  "gl": {
+    "data_id": "glg_wikipedia_2021_300K",
+    "url": "https://downloads.wortschatz-leipzig.de/corpora/glg_wikipedia_2021_300K.tar.gz",
+    "genre": "wikipedia",
+    "size": "300K",
+    "year": "2021"
+  },
+  "gu": {
+    "data_id": "guj_wikipedia_2021_100K",
+    "url": "https://downloads.wortschatz-leipzig.de/corpora/guj_wikipedia_2021_100K.tar.gz",
+    "genre": "wikipedia",
+    "size": "100K",
+    "year": "2021"
+  },
+  "ha": {
+    "data_id": "hau_wikipedia_2021_30K",
+    "url": "https://downloads.wortschatz-leipzig.de/corpora/hau_wikipedia_2021_30K.tar.gz",
+    "genre": "wikipedia",
+    "size": "30K",
+    "year": "2021"
+  },
+  "he": {
+    "data_id": "heb_wikipedia_2021_300K",
+    "url": "https://downloads.wortschatz-leipzig.de/corpora/heb_wikipedia_2021_300K.tar.gz",
+    "genre": "wikipedia",
+    "size": "300K",
+    "year": "2021"
+  },
+  "hi": {
+    "data_id": "hin_wikipedia_2021_300K",
+    "url": "https://downloads.wortschatz-leipzig.de/corpora/hin_wikipedia_2021_300K.tar.gz",
+    "genre": "wikipedia",
+    "size": "300K",
+    "year": "2021"
+  },
+  "hr": {
+    "data_id": "hrv_wikipedia_2021_300K",
+    "url": "https://downloads.wortschatz-leipzig.de/corpora/hrv_wikipedia_2021_300K.tar.gz",
+    "genre": "wikipedia",
+    "size": "300K",
+    "year": "2021"
+  },
+  "hu": {
+    "data_id": "hun_wikipedia_2021_300K",
+    "url": "https://downloads.wortschatz-leipzig.de/corpora/hun_wikipedia_2021_300K.tar.gz",
+    "genre": "wikipedia",
+    "size": "300K",
+    "year": "2021"
+  },
+  "hy": {
+    "data_id": "hye_wikipedia_2021_300K",
+    "url": "https://downloads.wortschatz-leipzig.de/corpora/hye_wikipedia_2021_300K.tar.gz",
+    "genre": "wikipedia",
+    "size": "300K",
+    "year": "2021"
+  },
+  "id": {
+    "data_id": "ind_wikipedia_2021_300K",
+    "url": "https://downloads.wortschatz-leipzig.de/corpora/ind_wikipedia_2021_300K.tar.gz",
+    "genre": "wikipedia",
+    "size": "300K",
+    "year": "2021"
+  },
+  "ig": {
+    "data_id": "ibo_wikipedia_2021_10K",
+    "url": "https://downloads.wortschatz-leipzig.de/corpora/ibo_wikipedia_2021_10K.tar.gz",
+    "genre": "wikipedia",
+    "size": "10K",
+    "year": "2021"
+  },
+  "is": {
+    "data_id": "isl_wikipedia_2021_100K",
+    "url": "https://downloads.wortschatz-leipzig.de/corpora/isl_wikipedia_2021_100K.tar.gz",
+    "genre": "wikipedia",
+    "size": "100K",
+    "year": "2021"
+  },
+  "it": {
+    "data_id": "ita_wikipedia_2021_300K",
+    "url": "https://downloads.wortschatz-leipzig.de/corpora/ita_wikipedia_2021_300K.tar.gz",
+    "genre": "wikipedia",
+    "size": "300K",
+    "year": "2021"
+  },
+  "ka": {
+    "data_id": "kat_wikipedia_2021_300K",
+    "url": "https://downloads.wortschatz-leipzig.de/corpora/kat_wikipedia_2021_300K.tar.gz",
+    "genre": "wikipedia",
+    "size": "300K",
+    "year": "2021"
+  },
+  "kk": {
+    "data_id": "kaz_wikipedia_2021_300K",
+    "url": "https://downloads.wortschatz-leipzig.de/corpora/kaz_wikipedia_2021_300K.tar.gz",
+    "genre": "wikipedia",
+    "size": "300K",
+    "year": "2021"
+  },
+  "kn": {
+    "data_id": "kan_wikipedia_2021_300K",
+    "url": "https://downloads.wortschatz-leipzig.de/corpora/kan_wikipedia_2021_300K.tar.gz",
+    "genre": "wikipedia",
+    "size": "300K",
+    "year": "2021"
+  },
+  "ko": {
+    "data_id": "kor_wikipedia_2021_300K",
+    "url": "https://downloads.wortschatz-leipzig.de/corpora/kor_wikipedia_2021_300K.tar.gz",
+    "genre": "wikipedia",
+    "size": "300K",
+    "year": "2021"
+  },
+  "ku": {
+    "data_id": "kur_newscrawl_2011_30K",
+    "url": "https://downloads.wortschatz-leipzig.de/corpora/kur_newscrawl_2011_30K.tar.gz",
+    "genre": "newscrawl",
+    "size": "30K",
+    "year": "2011"
+  },
+  "ky": {
+    "data_id": "kir_wikipedia_2021_300K",
+    "url": "https://downloads.wortschatz-leipzig.de/corpora/kir_wikipedia_2021_300K.tar.gz",
+    "genre": "wikipedia",
+    "size": "300K",
+    "year": "2021"
+  },
+  "li": {
+    "data_id": "lim_wikipedia_2021_100K",
+    "url": "https://downloads.wortschatz-leipzig.de/corpora/lim_wikipedia_2021_100K.tar.gz",
+    "genre": "wikipedia",
+    "size": "100K",
+    "year": "2021"
+  },
+  "lt": {
+    "data_id": "lit_wikipedia_2021_300K",
+    "url": "https://downloads.wortschatz-leipzig.de/corpora/lit_wikipedia_2021_300K.tar.gz",
+    "genre": "wikipedia",
+    "size": "300K",
+    "year": "2021"
+  },
+  "lv": {
+    "data_id": "lav_wikipedia_2014_300K",
+    "url": "https://downloads.wortschatz-leipzig.de/corpora/lav_wikipedia_2014_300K.tar.gz",
+    "genre": "wikipedia",
+    "size": "300K",
+    "year": "2014"
+  },
+  "mg": {
+    "data_id": "mlg_wikipedia_2014_30K",
+    "url": "https://downloads.wortschatz-leipzig.de/corpora/mlg_wikipedia_2014_30K.tar.gz",
+    "genre": "wikipedia",
+    "size": "30K",
+    "year": "2014"
+  },
+  "mk": {
+    "data_id": "mkd_wikipedia_2021_300K",
+    "url": "https://downloads.wortschatz-leipzig.de/corpora/mkd_wikipedia_2021_300K.tar.gz",
+    "genre": "wikipedia",
+    "size": "300K",
+    "year": "2021"
+  },
+  "ml": {
+    "data_id": "mal_wikipedia_2021_300K",
+    "url": "https://downloads.wortschatz-leipzig.de/corpora/mal_wikipedia_2021_300K.tar.gz",
+    "genre": "wikipedia",
+    "size": "300K",
+    "year": "2021"
+  },
+  "mn": {
+    "data_id": "mon_wikipedia_2021_100K",
+    "url": "https://downloads.wortschatz-leipzig.de/corpora/mon_wikipedia_2021_100K.tar.gz",
+    "genre": "wikipedia",
+    "size": "100K",
+    "year": "2021"
+  },
+  "mr": {
+    "data_id": "mar_wikipedia_2021_300K",
+    "url": "https://downloads.wortschatz-leipzig.de/corpora/mar_wikipedia_2021_300K.tar.gz",
+    "genre": "wikipedia",
+    "size": "300K",
+    "year": "2021"
+  },
+  "ms": {
+    "data_id": "msa_wikipedia_2021_300K",
+    "url": "https://downloads.wortschatz-leipzig.de/corpora/msa_wikipedia_2021_300K.tar.gz",
+    "genre": "wikipedia",
+    "size": "300K",
+    "year": "2021"
+  },
+  "mt": {
+    "data_id": "mlt_wikipedia_2021_30K",
+    "url": "https://downloads.wortschatz-leipzig.de/corpora/mlt_wikipedia_2021_30K.tar.gz",
+    "genre": "wikipedia",
+    "size": "30K",
+    "year": "2021"
+  },
+  "nb": {
+    "data_id": "nob_wikipedia_2014_300K",
+    "url": "https://downloads.wortschatz-leipzig.de/corpora/nob_wikipedia_2014_300K.tar.gz",
+    "genre": "wikipedia",
+    "size": "300K",
+    "year": "2014"
+  },
+  "ne": {
+    "data_id": "nep_wikipedia_2021_100K",
+    "url": "https://downloads.wortschatz-leipzig.de/corpora/nep_wikipedia_2021_100K.tar.gz",
+    "genre": "wikipedia",
+    "size": "100K",
+    "year": "2021"
+  },
+  "nl": {
+    "data_id": "nld_wikipedia_2021_300K",
+    "url": "https://downloads.wortschatz-leipzig.de/corpora/nld_wikipedia_2021_300K.tar.gz",
+    "genre": "wikipedia",
+    "size": "300K",
+    "year": "2021"
+  },
+  "nn": {
+    "data_id": "nno_wikipedia_2021_300K",
+    "url": "https://downloads.wortschatz-leipzig.de/corpora/nno_wikipedia_2021_300K.tar.gz",
+    "genre": "wikipedia",
+    "size": "300K",
+    "year": "2021"
+  },
+  "no": {
+    "data_id": "nor_wikipedia_2021_300K",
+    "url": "https://downloads.wortschatz-leipzig.de/corpora/nor_wikipedia_2021_300K.tar.gz",
+    "genre": "wikipedia",
+    "size": "300K",
+    "year": "2021"
+  },
+  "or": {
+    "data_id": "ori_wikipedia_2021_100K",
+    "url": "https://downloads.wortschatz-leipzig.de/corpora/ori_wikipedia_2021_100K.tar.gz",
+    "genre": "wikipedia",
+    "size": "100K",
+    "year": "2021"
+  },
+  "pa": {
+    "data_id": "pan_wikipedia_2021_300K",
+    "url": "https://downloads.wortschatz-leipzig.de/corpora/pan_wikipedia_2021_300K.tar.gz",
+    "genre": "wikipedia",
+    "size": "300K",
+    "year": "2021"
+  },
+  "pl": {
+    "data_id": "pol_wikipedia_2021_300K",
+    "url": "https://downloads.wortschatz-leipzig.de/corpora/pol_wikipedia_2021_300K.tar.gz",
+    "genre": "wikipedia",
+    "size": "300K",
+    "year": "2021"
+  },
+  "ps": {
+    "data_id": "pus_wikipedia_2021_30K",
+    "url": "https://downloads.wortschatz-leipzig.de/corpora/pus_wikipedia_2021_30K.tar.gz",
+    "genre": "wikipedia",
+    "size": "30K",
+    "year": "2021"
+  },
+  "pt": {
+    "data_id": "por_wikipedia_2021_300K",
+    "url": "https://downloads.wortschatz-leipzig.de/corpora/por_wikipedia_2021_300K.tar.gz",
+    "genre": "wikipedia",
+    "size": "300K",
+    "year": "2021"
+  },
+  "ro": {
+    "data_id": "ron_wikipedia_2021_300K",
+    "url": "https://downloads.wortschatz-leipzig.de/corpora/ron_wikipedia_2021_300K.tar.gz",
+    "genre": "wikipedia",
+    "size": "300K",
+    "year": "2021"
+  },
+  "ru": {
+    "data_id": "rus_wikipedia_2021_300K",
+    "url": "https://downloads.wortschatz-leipzig.de/corpora/rus_wikipedia_2021_300K.tar.gz",
+    "genre": "wikipedia",
+    "size": "300K",
+    "year": "2021"
+  },
+  "se": {
+    "data_id": "sme_wikipedia_2021_10K",
+    "url": "https://downloads.wortschatz-leipzig.de/corpora/sme_wikipedia_2021_10K.tar.gz",
+    "genre": "wikipedia",
+    "size": "10K",
+    "year": "2021"
+  },
+  "sh": {
+    "data_id": "hbs_wikipedia_2021_300K",
+    "url": "https://downloads.wortschatz-leipzig.de/corpora/hbs_wikipedia_2021_300K.tar.gz",
+    "genre": "wikipedia",
+    "size": "300K",
+    "year": "2021"
+  },
+  "si": {
+    "data_id": "sin_wikipedia_2021_100K",
+    "url": "https://downloads.wortschatz-leipzig.de/corpora/sin_wikipedia_2021_100K.tar.gz",
+    "genre": "wikipedia",
+    "size": "100K",
+    "year": "2021"
+  },
+  "sk": {
+    "data_id": "slk_wikipedia_2021_300K",
+    "url": "https://downloads.wortschatz-leipzig.de/corpora/slk_wikipedia_2021_300K.tar.gz",
+    "genre": "wikipedia",
+    "size": "300K",
+    "year": "2021"
+  },
+  "sl": {
+    "data_id": "slv_wikipedia_2021_300K",
+    "url": "https://downloads.wortschatz-leipzig.de/corpora/slv_wikipedia_2021_300K.tar.gz",
+    "genre": "wikipedia",
+    "size": "300K",
+    "year": "2021"
+  },
+  "sq": {
+    "data_id": "sqi_wikipedia_2021_300K",
+    "url": "https://downloads.wortschatz-leipzig.de/corpora/sqi_wikipedia_2021_300K.tar.gz",
+    "genre": "wikipedia",
+    "size": "300K",
+    "year": "2021"
+  },
+  "sr": {
+    "data_id": "srp_wikipedia_2021_300K",
+    "url": "https://downloads.wortschatz-leipzig.de/corpora/srp_wikipedia_2021_300K.tar.gz",
+    "genre": "wikipedia",
+    "size": "300K",
+    "year": "2021"
+  },
+  "sv": {
+    "data_id": "swe_wikipedia_2021_300K",
+    "url": "https://downloads.wortschatz-leipzig.de/corpora/swe_wikipedia_2021_300K.tar.gz",
+    "genre": "wikipedia",
+    "size": "300K",
+    "year": "2021"
+  },
+  "ta": {
+    "data_id": "tam_wikipedia_2021_300K",
+    "url": "https://downloads.wortschatz-leipzig.de/corpora/tam_wikipedia_2021_300K.tar.gz",
+    "genre": "wikipedia",
+    "size": "300K",
+    "year": "2021"
+  },
+  "te": {
+    "data_id": "tel_wikipedia_2021_300K",
+    "url": "https://downloads.wortschatz-leipzig.de/corpora/tel_wikipedia_2021_300K.tar.gz",
+    "genre": "wikipedia",
+    "size": "300K",
+    "year": "2021"
+  },
+  "tg": {
+    "data_id": "tgk_wikipedia_2021_100K",
+    "url": "https://downloads.wortschatz-leipzig.de/corpora/tgk_wikipedia_2021_100K.tar.gz",
+    "genre": "wikipedia",
+    "size": "100K",
+    "year": "2021"
+  },
+  "tk": {
+    "data_id": "tuk_wikipedia_2021_30K",
+    "url": "https://downloads.wortschatz-leipzig.de/corpora/tuk_wikipedia_2021_30K.tar.gz",
+    "genre": "wikipedia",
+    "size": "30K",
+    "year": "2021"
+  },
+  "tr": {
+    "data_id": "tur_wikipedia_2021_300K",
+    "url": "https://downloads.wortschatz-leipzig.de/corpora/tur_wikipedia_2021_300K.tar.gz",
+    "genre": "wikipedia",
+    "size": "300K",
+    "year": "2021"
+  },
+  "tt": {
+    "data_id": "tat_wikipedia_2021_100K",
+    "url": "https://downloads.wortschatz-leipzig.de/corpora/tat_wikipedia_2021_100K.tar.gz",
+    "genre": "wikipedia",
+    "size": "100K",
+    "year": "2021"
+  },
+  "ug": {
+    "data_id": "uig_wikipedia_2021_30K",
+    "url": "https://downloads.wortschatz-leipzig.de/corpora/uig_wikipedia_2021_30K.tar.gz",
+    "genre": "wikipedia",
+    "size": "30K",
+    "year": "2021"
+  },
+  "uk": {
+    "data_id": "ukr_wikipedia_2021_300K",
+    "url": "https://downloads.wortschatz-leipzig.de/corpora/ukr_wikipedia_2021_300K.tar.gz",
+    "genre": "wikipedia",
+    "size": "300K",
+    "year": "2021"
+  },
+  "ur": {
+    "data_id": "urd_wikipedia_2021_300K",
+    "url": "https://downloads.wortschatz-leipzig.de/corpora/urd_wikipedia_2021_300K.tar.gz",
+    "genre": "wikipedia",
+    "size": "300K",
+    "year": "2021"
+  },
+  "uz": {
+    "data_id": "uzb_wikipedia_2021_100K",
+    "url": "https://downloads.wortschatz-leipzig.de/corpora/uzb_wikipedia_2021_100K.tar.gz",
+    "genre": "wikipedia",
+    "size": "100K",
+    "year": "2021"
+  },
+  "vi": {
+    "data_id": "vie_wikipedia_2021_300K",
+    "url": "https://downloads.wortschatz-leipzig.de/corpora/vie_wikipedia_2021_300K.tar.gz",
+    "genre": "wikipedia",
+    "size": "300K",
+    "year": "2021"
+  },
+  "wa": {
+    "data_id": "wln_wikipedia_2021_30K",
+    "url": "https://downloads.wortschatz-leipzig.de/corpora/wln_wikipedia_2021_30K.tar.gz",
+    "genre": "wikipedia",
+    "size": "30K",
+    "year": "2021"
+  },
+  "yi": {
+    "data_id": "yid_wikipedia_2021_30K",
+    "url": "https://downloads.wortschatz-leipzig.de/corpora/yid_wikipedia_2021_30K.tar.gz",
+    "genre": "wikipedia",
+    "size": "30K",
+    "year": "2021"
+  },
+  "yo": {
+    "data_id": "yor_wikipedia_2021_10K",
+    "url": "https://downloads.wortschatz-leipzig.de/corpora/yor_wikipedia_2021_10K.tar.gz",
+    "genre": "wikipedia",
+    "size": "10K",
+    "year": "2021"
+  },
+  "zu": {
+    "data_id": "zul_news_2013_30K",
+    "url": "https://downloads.wortschatz-leipzig.de/corpora/zul_news_2013_30K.tar.gz",
+    "genre": "news",
+    "size": "30K",
+    "year": "2013"
+  }
+}

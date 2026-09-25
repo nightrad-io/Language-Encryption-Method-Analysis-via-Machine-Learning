@@ -37,7 +37,11 @@ def train_bpe(text: str, num_merges: int = NUM_MERGES):
     for _ in range(num_merges):
         if not pair_counts:
             break
-        best, best_count = pair_counts.most_common(1)[0]
+        # Ties broken by the pair itself, not dict order: pair_counts'
+        # insertion order comes from iterating sets of str tuples below,
+        # which varies with per-process hash randomization -- most_common()
+        # made the same text segment differently in every process.
+        best, best_count = min(pair_counts.items(), key=lambda kv: (-kv[1], kv[0]))
         if best_count < 2:
             break
         merges.append(best)

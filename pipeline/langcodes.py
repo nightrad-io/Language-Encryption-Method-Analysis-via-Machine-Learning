@@ -78,7 +78,10 @@ KNOWN_CODES = set(LANGUAGE_NAMES)
 # nl/af were all top confusions there, by a wide margin over anything else
 # -- plus well-established mutual-intelligibility relationships for
 # languages that run didn't include enough members of to surface on their
-# own (cs/sk, pt/gl, ms/id). Deliberately NOT linguistic-family-complete
+# own (cs/sk, pt/gl, ms/id). The 2026-09-25 91-language rebuild's benchmark
+# (fresh seeds, all ciphers) had ms/id, bs/hr, no/da/nn, bg/mk and nl/af as
+# its top confusions and surfaced three more symmetric 10-14% confusion
+# pairs: as/bn, ne/mr, kk/tt. Deliberately NOT linguistic-family-complete
 # (e.g. not "all Slavic languages") -- membership means genuinely easy to
 # confuse, not merely related.
 LANGUAGE_FAMILIES = [
@@ -90,6 +93,9 @@ LANGUAGE_FAMILIES = [
     frozenset({"nl", "af", "fy", "li"}),
     frozenset({"pt", "gl"}),
     frozenset({"ms", "id"}),
+    frozenset({"as", "bn"}),
+    frozenset({"ne", "mr"}),
+    frozenset({"kk", "tt"}),
 ]
 
 LANGUAGE_FAMILY_LABELS = {
@@ -101,4 +107,7 @@ LANGUAGE_FAMILY_LABELS = {
     frozenset({"nl", "af", "fy", "li"}): "Low Franconian/Frisian",
     frozenset({"pt", "gl"}): "Portuguese/Galician",
     frozenset({"ms", "id"}): "Malay/Indonesian",
+    frozenset({"as", "bn"}): "Bengali/Assamese",
+    frozenset({"ne", "mr"}): "Nepali/Marathi (Devanagari)",
+    frozenset({"kk", "tt"}): "Kipchak Turkic (Cyrillic)",
 }
