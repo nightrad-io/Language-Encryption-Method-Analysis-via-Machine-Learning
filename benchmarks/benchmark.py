@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """End-to-end benchmark of the trained cipher/language model.
 
-Unlike output/model_eval.json (which reports accuracy on held-out rows
+Unlike models/model_eval.json (which reports accuracy on held-out rows
 of the pre-built feature table output/model_dataset.csv), this generates
 FRESH raw text -> cipher -> ciphertext samples and runs them through the
 real feature-extraction path (client.compute_features, the same function
@@ -128,7 +128,7 @@ def top_k_from_proba(proba, classes, k):
 
 
 def run_benchmark(languages, window_sizes, n_samples, models_dir, output_dir, max_corpus_chars):
-    client = CipherLanguageClient(models_dir=models_dir, eval_report=os.path.join(output_dir, "model_eval.json"))
+    client = CipherLanguageClient(models_dir=models_dir)
     feature_cols = client.manifest["feature_cols"]
     cipher_classes = list(client.stage_a.classes_)
     stack_cols = [f"stageA_proba_{c}" for c in cipher_classes]

@@ -180,7 +180,6 @@ def main():
     p.add_argument("--test-size", type=float, default=0.2)
     p.add_argument("--seed", type=int, default=42)
     p.add_argument("--models-dir", default="models")
-    p.add_argument("--output-dir", default="output")
     args = p.parse_args()
 
     os.makedirs(args.models_dir, exist_ok=True)
@@ -259,7 +258,7 @@ def main():
                               "accuracy_by_cipher_category": lang_by_cipher_category},
         "joint_accuracy": joint_accuracy,
     }
-    with open(os.path.join(args.output_dir, "model_eval.json"), "w") as fh:
+    with open(os.path.join(args.models_dir, "model_eval.json"), "w") as fh:
         json.dump(results, fh, indent=2)
 
     print("\n=== Summary ===")
@@ -268,7 +267,7 @@ def main():
     print(f"Stage B (language, {len(stage_b_model.classes_)}-way): "
           f"acc={stage_b_metrics['test_accuracy']:.4f}")
     print(f"Joint (both correct): {joint_accuracy:.4f}")
-    print(f"Wrote models to {args.models_dir}/, eval report to {args.output_dir}/model_eval.json")
+    print(f"Wrote models and model_eval.json to {args.models_dir}/")
 
 
 if __name__ == "__main__":

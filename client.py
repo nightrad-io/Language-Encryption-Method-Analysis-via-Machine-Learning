@@ -121,11 +121,15 @@ class CipherLanguageClient:
     .predict(text) for repeated queries -- avoids reloading the ~720MB of
     joblib models on every call."""
 
-    def __init__(self, models_dir="models", eval_report="output/model_eval.json"):
+    def __init__(self, models_dir="models", eval_report=None):
+        """eval_report: path to the training run's model_eval.json (per-length
+        accuracy for length_caveat); defaults to the copy shipped in
+        models_dir. A missing report only drops length_caveat."""
         self.models_dir = models_dir
         self.manifest = json.load(open(os.path.join(models_dir, "feature_manifest.json")))
         self.stage_a = joblib.load(os.path.join(models_dir, "cipher_classifier.joblib"))
         self.stage_b = joblib.load(os.path.join(models_dir, "language_classifier.joblib"))
+        eval_report = eval_report or os.path.join(models_dir, "model_eval.json")
         self.model_eval = json.load(open(eval_report)) if os.path.exists(eval_report) else None
 
     @property
