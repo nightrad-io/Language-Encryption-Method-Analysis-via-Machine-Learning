@@ -118,7 +118,7 @@ def compute_features(text):
 
 class CipherLanguageClient:
     """Loads the two-stage cipher/language classifier once and exposes
-    .predict(text) for repeated queries -- avoids reloading the ~500MB of
+    .predict(text) for repeated queries -- avoids reloading the ~720MB of
     joblib models on every call."""
 
     def __init__(self, models_dir="models", eval_report="output/model_eval.json"):

@@ -1,0 +1,4 @@
+# Training/dataset-building extras on top of the pinned inference stack.
+-r requirements.txt
+scikit-optimize==0.10.2
+scipy==1.18.0
