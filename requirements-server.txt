@@ -2,3 +2,4 @@
 -r requirements.txt
 fastapi==0.141.1
 uvicorn==0.54.0
+threadpoolctl==3.7.0

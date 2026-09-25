@@ -16,6 +16,13 @@ Environment:
 
 Run a single worker: each worker process holds its own copy of the ~720MB
 of models.
+
+Predictions run with OpenMP limited to one thread. Requests predict 1-10 rows,
+and HistGradientBoostingClassifier.predict_proba parallelizes over rows, so
+more threads only add synchronization per tree (~32,000 trees): measured in
+the container, Stage B on one row took 8.7s at 10 threads vs 0.12s at 1. The
+limit is applied per request because OpenMP's thread count is per-thread
+state -- set at startup it never reaches FastAPI's worker threads.
 """
 import os
 import time
@@ -24,6 +31,7 @@ from contextlib import asynccontextmanager
 from fastapi import FastAPI, HTTPException
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
+from threadpoolctl import threadpool_limits
 
 from client import CipherLanguageClient, MAX_TRAINED_WINDOW
 from pipeline.langcodes import LANGUAGE_NAMES
@@ -106,7 +114,8 @@ def predict(req: PredictRequest):
         raise HTTPException(422, f"unknown cipher {req.cipher!r}; see /api/meta for valid ids")
 
     t0 = time.perf_counter()
-    result = client.predict(req.text, top_k=req.top_k, known_cipher=req.cipher, chunk=req.chunk)
+    with threadpool_limits(limits=1, user_api="openmp"):
+        result = client.predict(req.text, top_k=req.top_k, known_cipher=req.cipher, chunk=req.chunk)
     return PredictResponse(
         n_chars=result["n_chars"],
         n_chunks=result["n_chunks"],
