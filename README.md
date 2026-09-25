@@ -70,8 +70,8 @@ GIT_REF=some-branch PORT=8080 docker compose up -d --build
 A rebuild only re-clones when the ref has moved (the build caches on the
 ref's commit metadata from the GitHub API); each fresh clone downloads
 ~720MB through Git LFS, which counts against the repository's LFS bandwidth.
-The container needs ~1.5GB of RAM for the models and runs one worker —
-more workers would each load their own copy.
+The container uses ~900MB of RAM (measured 890MiB with the models loaded) and
+runs one worker — more workers would each load their own copy.
 
 Without Docker: `pip install -r requirements-server.txt && uvicorn server.app:app`.
 
