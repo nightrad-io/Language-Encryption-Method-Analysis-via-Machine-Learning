@@ -39,7 +39,7 @@ def main():
     p.add_argument("--list-ciphers", action="store_true", help="Print valid --cipher ids and exit")
     p.add_argument("--top-k", type=int, default=3)
     p.add_argument("--models-dir", default="models")
-    p.add_argument("--eval-report", default="output/model_eval.json")
+    p.add_argument("--eval-report", default=None, help="default: <models-dir>/model_eval.json")
     p.add_argument("--chunk-size", type=int, default=MAX_TRAINED_WINDOW,
                     help=f"Split input longer than this many characters into chunks and average "
                          f"the results (default: {MAX_TRAINED_WINDOW}, the longest window size "

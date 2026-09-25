@@ -1,0 +1,13 @@
+services:
+  cipher-id:
+    build:
+      context: .
+      args:
+        GITHUB_REPO: ${GITHUB_REPO:-nightrad-io/Language-Encryption-Method-Analysis-via-Machine-Learning}
+        GIT_REF: ${GIT_REF:-main}
+    image: cipher-language-id
+    ports:
+      - "${PORT:-8000}:8000"
+    environment:
+      MAX_CHARS: ${MAX_CHARS:-100000}
+    restart: unless-stopped

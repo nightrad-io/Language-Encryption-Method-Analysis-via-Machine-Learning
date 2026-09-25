@@ -1,0 +1,63 @@
+:root {
+  --fg: #1d2127;
+  --muted: #5d6673;
+  --line: #d9dde3;
+  --accent: #2f6fdb;
+  --bg: #f7f8fa;
+  --error: #b3261e;
+  font: 15px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif;
+  color: var(--fg);
+  background: var(--bg);
+}
+
+main { max-width: 960px; margin: 0 auto; padding: 1.5rem 1rem 3rem; }
+h1 { font-size: 1.5rem; margin: 0 0 .25rem; }
+h2 { font-size: 1rem; margin: 0 0 .5rem; }
+header p { margin: 0 0 1rem; color: var(--muted); }
+
+textarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: .75rem;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  font: 14px/1.4 ui-monospace, SFMono-Regular, Menlo, monospace;
+  resize: vertical;
+}
+
+.controls { display: flex; flex-wrap: wrap; gap: .75rem 1rem; align-items: center; margin-top: .75rem; }
+.controls label { display: flex; gap: .4rem; align-items: center; color: var(--muted); }
+.count { margin-left: auto; color: var(--muted); font-variant-numeric: tabular-nums; }
+button {
+  padding: .5rem 1.25rem;
+  border: 0;
+  border-radius: 6px;
+  background: var(--accent);
+  color: #fff;
+  font: inherit;
+  cursor: pointer;
+}
+button:disabled { opacity: .45; cursor: default; }
+
+.status { min-height: 1.5em; color: var(--muted); }
+.error { color: var(--error); }
+
+.columns { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+.guesses { list-style: none; margin: 0; padding: 0; }
+.guesses li {
+  display: grid;
+  grid-template-columns: 11rem 1fr 4rem;
+  gap: .5rem;
+  align-items: center;
+  padding: .3rem 0;
+  border-bottom: 1px solid var(--line);
+}
+.guesses .label { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.guesses code { color: var(--muted); font-size: .85em; }
+.bar { height: .6rem; border-radius: 3px; background: linear-gradient(to right, var(--accent) calc(var(--p) * 100%), var(--line) 0); }
+.value { text-align: right; font-variant-numeric: tabular-nums; }
+
+.note, .caveat { margin: 1rem 0 0; padding: .6rem .8rem; border-radius: 6px; }
+.note { background: #fff4d6; }
+.caveat { background: #e8eef9; }
+.summary { color: var(--muted); font-size: .9rem; }

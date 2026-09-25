@@ -1,0 +1,4 @@
+# HTTP API + web UI (server/) on top of the pinned inference stack.
+-r requirements.txt
+fastapi==0.141.1
+uvicorn==0.54.0

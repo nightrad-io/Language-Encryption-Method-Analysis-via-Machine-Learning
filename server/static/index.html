@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cipher &amp; Language Identification</title>
+  <link rel="stylesheet" href="style.css">
+  <script type="module" src="app.js"></script>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>Cipher &amp; Language Identification</h1>
+      <p>Paste plaintext or classical-cipher ciphertext. The model guesses which of
+        <span id="n-ciphers">21</span> ciphers was used and which of
+        <span id="n-languages">91</span> languages the underlying text is in.
+        <a href="docs">API docs</a></p>
+    </header>
+
+    <form id="form">
+      <textarea id="text" rows="12" spellcheck="false"
+        placeholder="Ciphertext or plaintext — a few hundred characters or more gives far better results"></textarea>
+      <div class="controls">
+        <label>File <input id="file" type="file" accept=".txt,text/plain"></label>
+        <label>Cipher
+          <select id="cipher"><option value="">Unknown — identify it</option></select>
+        </label>
+        <label>Top <select id="top-k"><option>3</option><option selected>5</option><option>10</option></select></label>
+        <span id="count" class="count">0 characters</span>
+        <button id="submit" type="submit" disabled>Identify</button>
+      </div>
+    </form>
+
+    <p id="status" class="status">Loading model info…</p>
+
+    <section id="results" hidden>
+      <div class="columns">
+        <div>
+          <h2 id="cipher-heading">Cipher</h2>
+          <ol id="ciphers" class="guesses"></ol>
+        </div>
+        <div>
+          <h2>Language</h2>
+          <ol id="languages" class="guesses"></ol>
+        </div>
+      </div>
+      <p id="family-note" class="note" hidden></p>
+      <p id="length-caveat" class="caveat" hidden></p>
+      <p id="summary" class="summary"></p>
+    </section>
+  </main>
+</body>
+</html>

@@ -32,6 +32,49 @@ result.get("family_note") # present when the top language has a close-knit
                            # between them rather than a single confident answer
 ```
 
+## Web UI and HTTP API
+
+`server/app.py` serves the model over a small JSON API plus a browser UI at
+`/` (paste or open a text file, optionally name a known cipher). Interactive
+API docs are at `/docs`.
+
+| Endpoint | What |
+|---|---|
+| `GET /api/health` | liveness; answers once the models are loaded |
+| `GET /api/meta` | cipher ids, languages, `max_chars`, accuracy by input length |
+| `POST /api/predict` | `{"text": "...", "top_k": 3, "cipher": null, "chunk": true}` → top ciphers/languages, `family_note`, `length_caveat` |
+
+```bash
+curl -s localhost:8000/api/predict -H 'Content-Type: application/json' \
+  -d '{"text": "gur dhvpx oebja sbk whzcf bire gur ynml qbt"}'
+```
+
+### Docker
+
+`deploy/` builds the image straight from this GitHub repo — code and Git LFS
+models — so those two files are all a Docker host needs:
+
+```bash
+cd deploy
+docker compose up -d --build                             # http://localhost:8000
+GIT_REF=some-branch PORT=8080 docker compose up -d --build
+```
+
+| Variable | Default | What |
+|---|---|---|
+| `GIT_REF` | `main` | branch or tag to build |
+| `GITHUB_REPO` | this repo | `owner/name` to clone |
+| `PORT` | `8000` | host port |
+| `MAX_CHARS` | `100000` | longest accepted input; past 10,000 characters each extra 10,000 is another chunk of feature extraction |
+
+A rebuild only re-clones when the ref has moved (the build caches on the
+ref's commit metadata from the GitHub API); each fresh clone downloads
+~720MB through Git LFS, which counts against the repository's LFS bandwidth.
+The container needs ~1.5GB of RAM for the models and runs one worker —
+more workers would each load their own copy.
+
+Without Docker: `pip install -r requirements-server.txt && uvicorn server.app:app`.
+
 ## How it works
 
 - **Stage A** predicts the cipher (21-way) from 105 features computed
@@ -199,7 +242,7 @@ python training/fetch_leipzig_corpora.py                 # -> output/corpora/, o
 # Latin: clone The Latin Library text into dictionaries/lat_text_latin_library/;
 # its corpus is built on first use by the step below.
 python training/build_model_dataset.py --n-samples 50    # -> output/model_dataset.csv (one language per core, --jobs)
-python training/train_model.py                           # -> models/*, output/model_eval.json
+python training/train_model.py                           # -> models/* (incl. model_eval.json)
 python benchmarks/benchmark.py --languages all           # fresh-seed end-to-end benchmark
 python -m unittest discover tests
 ```
@@ -211,6 +254,7 @@ python -m unittest discover tests
 | `models/cipher_classifier.joblib` | ~138MB | Stage A |
 | `models/language_classifier.joblib` | ~581MB | Stage B |
 | `models/feature_manifest.json` | 5KB | exact feature column order, both stages' class lists, and hyperparameters — inference must match this exactly |
+| `models/model_eval.json` | 3KB | held-out metrics, incl. accuracy by input length (the source of `length_caveat` in predictions) |
 
 ### Git LFS
 
